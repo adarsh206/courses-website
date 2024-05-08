@@ -3,7 +3,7 @@ import React from 'react'
 
 const Statistics = () => {
   return (
-    <div>Statistics</div>
+    <div className='flex justify-center items-center'>Statistics</div>
   )
 }
 
