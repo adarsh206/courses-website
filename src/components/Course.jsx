@@ -3,6 +3,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import { forwardRef } from 'react';
+import {RiStarFill} from "react-icons/ri";
 
 
 
@@ -12,7 +13,7 @@ const DifficultyLevel = ({difficulty}) => {
   
   for(let i = 0; i < 3; i++){
     spans.push(
-      <span key={i} className={`${i < index ? "active" : ""} block w-1 h-2 rounded-[1px] bg-white`}></span>
+      <span key={i} className={`${i < index ? "active" : ""} block w-1 h-2 rounded-[1px] bg-white [&:is(.active)]:bg-[var(--bg)] [&:nth-child(1)]:h-[6px] [&:nth-child(2)]:h-[10px] [&:nth-child(3)]:h-[14px]`}></span>
     )
   }
   return(
@@ -44,6 +45,21 @@ const Course = forwardRef(({id, title, category, difficulty, thumbnail, instruct
                       <DifficultyLevel difficulty={difficulty}/>
                   </div>
               </div>
+          </div>
+          {/** Course Instructor */}
+          <div className='flex justify-between items-center'>
+            <div className='flex items-center gap-x-4'>
+              <div className='w-9 h-9 rounded-full overflow-hidden'>
+                  <img src={pic} alt={name}/>
+              </div>
+              <p className='text-base font-medium'>
+                  {name}
+              </p>
+            </div>
+            <div className='flex items-center gap-x-2'>
+              <RiStarFill className='text-orange-600' size={20}/>
+              <p className='text-base font-semibold'>{rating}</p>
+            </div>
           </div>
         </a>
     </div>
